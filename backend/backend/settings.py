@@ -25,22 +25,16 @@ SECRET_KEY = 'django-insecure-4tklnwldpk0@&vr6eihpccqww0dm+ldi57@c1#q*1chiq$3^p+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '3.106.241.199',  # Replace with your EC2 public IP
+    'ip-172-31-12-241.ap-southeast-2.compute.internal',  # EC2 internal hostname
+    'localhost',
+    '127.0.0.1',
+    '*',  # Allow all hosts (use carefully, for testing only)
+]
 
 
 # Application definition
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'corsheaders',  # Allow React frontend to communicate
-    'api',
-]
 
 
 ROOT_URLCONF = 'backend.urls'
@@ -135,14 +129,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
 
 # Allow React frontend to make requests
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # React dev server
+    "http://localhost:3000",
+     "http://3.106.241.199:3000"  # React dev server
 ]
 
 # Django REST Framework settings
@@ -153,3 +148,13 @@ REST_FRAMEWORK = {
 }
 
 # Database setup (use PostgreSQL in production)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'scorecard',  # Database name
+        'USER': 'admin',  # Database user
+        'PASSWORD': 'admin123',  # Database password
+        'HOST': 'scorecard.czg0aw0qg6j8.ap-southeast-2.rds.amazonaws.com',  # Database host
+        'PORT': '3306',  # Database port
+    }
+}
