@@ -1,6 +1,6 @@
-# Performance Analysis Dashboard
+# Performance Scorecard Analysis
 
-This project is a full-stack application that demonstrates a performance analysis dashboard. It consists of a React-based frontend for interactive data visualization and a Django backend that serves performance data via a RESTful API.
+This project is a full-stack application that demonstrates a performance analysis scorecard. It consists of a React-based frontend for interactive data visualization and a Django backend that serves performance data via a RESTful API.
 
 ## Table of Contents
 
@@ -10,7 +10,7 @@ This project is a full-stack application that demonstrates a performance analysi
 
 ## Overview
 
-The Performance Analysis Dashboard allows users to:
+The Performance Scorecard Analysis allows users to:
 - **Visualize Data:** See performance scores in an interactive bar chart.
 - **Export Data:** Download performance records as a CSV file.
 - **Manage Records:** Delete individual records.
@@ -29,8 +29,8 @@ The Performance Analysis Dashboard allows users to:
 - **React**: For building the user interface.
 - **Material UI**: For responsive UI components.
 - **Chart.js & react-chartjs-2**: For data visualization.
-- **lz-string & file-saver**: For data compression and file export.
+- **file-saver**: For data compression and file export.
 
 ### Backend
 - **Django**: Python web framework for the backend API.
-- **Django REST Framework** (if used): To create RESTful endpoints.
+- **Django REST Framework**: To create RESTful endpoints.
