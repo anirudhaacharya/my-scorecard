@@ -34,7 +34,7 @@ function App() {
           align="center"
           style={{ margin: "20px 0" }}
         >
-          Dynamic Scorecard Tool
+          Dynamic Scorecard Analysis
         </Typography>
         <ScorecardForm
           onSubmit={handleFormSubmit}
