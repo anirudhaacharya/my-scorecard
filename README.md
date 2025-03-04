@@ -2,6 +2,8 @@
 
 This project is a full-stack application that demonstrates a performance analysis scorecard. It consists of a React-based frontend for interactive data visualization and a Django backend that serves performance data via a RESTful API.
 
+**Link to project**: http://3.106.241.199:3000/
+
 ## Table of Contents
 
 - [Overview](#overview)
