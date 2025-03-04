@@ -8,12 +8,13 @@ import {
 import ScorecardForm from "./ScorecardForm";
 import Dashboard from "./Dashboard";
 import Typography from "@mui/material/Typography";
+import { BASE_URL } from "./constants";
 
 const theme = createTheme();
 
 function App() {
   const handleFormSubmit = (payload) => {
-    fetch("http://3.106.241.199:8000/api/entries/", {
+    fetch(BASE_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

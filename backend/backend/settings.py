@@ -152,9 +152,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'scorecard',  # Database name
+        # 'USER': 'root',  # Database user
+        # 'PASSWORD': 'root123',  # Database password
+        # 'HOST': 'localhost',  # localhost for local db connection or 
+
+
+
         'USER': 'admin',  # Database user
         'PASSWORD': 'admin123',  # Database password
         'HOST': 'scorecard.czg0aw0qg6j8.ap-southeast-2.rds.amazonaws.com',  # Database host
+
+
         'PORT': '3306',  # Database port
     }
 }

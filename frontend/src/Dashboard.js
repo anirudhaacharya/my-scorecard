@@ -23,6 +23,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { BASE_URL } from "./constants";
 
 ChartJS.register(
   CategoryScale,
@@ -43,7 +44,7 @@ function Dashboard() {
   }, []);
 
   const fetchEntries = () => {
-    fetch("http://3.106.241.199:8000/api/entries/")
+    fetch(BASE_URL)
       .then((response) => response.json())
       .then((data) => setEntries(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -78,28 +79,10 @@ function Dashboard() {
     saveAs(blob, "performance_scores.csv");
   };
 
-  // Shareable Link Function
-  const generateShareLink = async () => {
-    try {
-      const compressedData = compressToEncodedURIComponent(
-        JSON.stringify(entries)
-      );
-      const baseUrl = window.location.href.split("?")[0];
-      console.log(baseUrl);
-      const shareUrl = `${baseUrl}?shared=${compressedData}`;
-
-      await navigator.clipboard.writeText(shareUrl);
-      alert("Shareable link copied to clipboard!");
-    } catch (error) {
-      console.error("Error generating link:", error);
-      alert("Error generating share link");
-    }
-  };
-
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this record?")) {
       try {
-        await fetch(`http://3.106.241.199:8000/api/entries/${id}/`, {
+        await fetch(`${BASE_URL}${id}/`, {
           method: "DELETE",
         });
         setEntries(entries.filter((entry) => entry.id !== id));
@@ -166,15 +149,6 @@ function Dashboard() {
             sx={{ mr: 1 }}
           >
             CSV
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<LinkIcon />}
-            onClick={generateShareLink}
-            disabled={!entries.length}
-          >
-            Share
           </Button>
         </div>
       </div>

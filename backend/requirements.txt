@@ -2,3 +2,5 @@ Django>=4.2
 djangorestframework
 mysqlclient
 gunicorn
+django-cors-headers
+djangorestframework-simplejwt
